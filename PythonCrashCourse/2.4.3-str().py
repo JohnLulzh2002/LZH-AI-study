@@ -1,0 +1,1 @@
+print("Happy "+str(18)+"th Birthday")
