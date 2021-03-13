@@ -1,4 +1,5 @@
 import numpy as np
+arr=np.array
 def perceptron(w,x,theta):
     sum=np.dot(w,x.T)-theta
     if sum>0:
@@ -6,15 +7,15 @@ def perceptron(w,x,theta):
     else:
         return False
 def AND(x):
-    return perceptron(np.array([1,1]),x,1)
+    return perceptron(arr([1,1]),x,1)
 def OR(x):
-    return perceptron(np.array([1,1]),x,0)
+    return perceptron(arr([1,1]),x,0)
 def NAND(x):
-    return perceptron(np.array([-1,-1]),x,-2)
+    return perceptron(arr([-1,-1]),x,-2)
 def NOR(x):
-    y=np.array([OR(x),NAND(x)])
+    y=arr([OR(x),NAND(x)])
     return AND(y)
-a=[np.array([0,0]),np.array([0,1]),np.array([1,0]),np.array([1,1])]
+a=[arr([0,0]),arr([0,1]),arr([1,0]),arr([1,1])]
 for i in a:
     print("AND(",i,")=",AND(i))
 print()
