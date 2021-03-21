@@ -18,8 +18,8 @@ key_file = {
     'test_label':'t10k-labels-idx1-ubyte.gz'
 }
 
-dataset_dir = 'E:\\Download\\'
-save_file = dataset_dir + "/mnist.pkl"
+dataset_dir = os.path.dirname(os.path.abspath(__file__))
+save_file = os.path.join(dataset_dir, "mnist.pkl")
 
 train_num = 60000
 test_num = 10000
@@ -27,7 +27,7 @@ img_dim = (1, 28, 28)
 img_size = 784
 
 # def _download(file_name):
-#     file_path = dataset_dir + "/" + file_name
+#     file_path = os.path.join(dataset_dir, file_name)
     
 #     if os.path.exists(file_path):
 #         return
@@ -41,7 +41,7 @@ img_size = 784
 #        _download(v)
         
 def _load_label(file_name):
-    file_path = dataset_dir + "/" + file_name
+    file_path = os.path.join(dataset_dir, file_name)
     
     print("Converting " + file_name + " to NumPy Array ...")
     with gzip.open(file_path, 'rb') as f:
@@ -51,7 +51,7 @@ def _load_label(file_name):
     return labels
 
 def _load_img(file_name):
-    file_path = dataset_dir + "/" + file_name
+    file_path = os.path.join(dataset_dir, file_name)
     
     print("Converting " + file_name + " to NumPy Array ...")    
     with gzip.open(file_path, 'rb') as f:
@@ -101,6 +101,8 @@ def load_mnist(normalize=True, flatten=True, one_hot_label=False):
     -------
     (训练图像, 训练标签), (测试图像, 测试标签)
     """
+    # print('##save_file=',save_file)
+    print('##os.path.exists(save_file)=',os.path.exists(save_file))
     if not os.path.exists(save_file):
         init_mnist()
         
