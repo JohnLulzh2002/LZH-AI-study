@@ -101,8 +101,6 @@ def load_mnist(normalize=True, flatten=True, one_hot_label=False):
     -------
     (训练图像, 训练标签), (测试图像, 测试标签)
     """
-    # print('##save_file=',save_file)
-    print('##os.path.exists(save_file)=',os.path.exists(save_file))
     if not os.path.exists(save_file):
         init_mnist()
         
