@@ -8,7 +8,7 @@ def sigmoid(x):
     return y
 def ReLU(x):
     return np.maximum(x,0)
-x=np.arange(-5,5,0.1)
+x=np.arange(-4,4,0.01)
 y=step(x)
 plt.plot(x,y,label="step")
 y=sigmoid(x)
