@@ -1,11 +1,10 @@
-import sys, os
+import os
 import numpy as np
 from PIL import Image
 import matplotlib.pyplot as plt
 from matplotlib.image import imread
 import pickle
-sys.path.append("Dataset")
-from mnist_mod import load_mnist
+from Dataset.mnist_mod import load_mnist
 from CommonFun import forward,sigmoid,softmax
 
 (x_train, t_train), (x_test, t_test) = load_mnist(normalize=False)
