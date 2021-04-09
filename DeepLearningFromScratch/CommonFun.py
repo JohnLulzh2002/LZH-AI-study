@@ -32,7 +32,6 @@ def cross_entropy_error(y, t, one_hot=False):
         return -np.sum(t * np.log(y + d))/batch_size
 
 def numerical_grad(f,x):
-    # x=x.astype(float)
     h=1e-4
     ans=np.zeros_like(x)
     if x.ndim==1:
