@@ -1,5 +1,5 @@
 import numpy as np
-from CommonFun import softmax,cross_entropy_error,numerical_grad
+from CommonFun import softmax,cross_entropy_error,numerical_gradient
 class simpleNet:
     def __init__(self):
         self.W = np.random.randn(2, 3)
@@ -18,12 +18,12 @@ print('x=',x,'\tp(x)=',net.predict(x),sep='')
 t=np.array([0,0,1])
 f=lambda nothing: net.loss(x,t)
 print('loss=',f(None),sep='')
-dW=numerical_grad(f,net.W)
+dW=numerical_gradient(f,net.W)
 print('dW=',dW,end='\n\n')
 
 def grad_descent(f,x,lr=0.05,rep=2000):
     for i in range(rep):
-        x-=numerical_grad(f,x)*lr
+        x-=numerical_gradient(f,x)*lr
     return x
 net.W=grad_descent(f,net.W)
 print('p(x)=',net.predict(x))
